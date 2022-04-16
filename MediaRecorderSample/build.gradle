@@ -4,10 +4,11 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.1.0-alpha5'
+        classpath 'com.android.tools.build:gradle:7.1.2'
     }
 }
 
@@ -17,7 +18,7 @@ apply plugin: 'android'
 dependencies {
 
     // Add the support lib that is appropriate for SDK 14
-    compile "com.android.support:support-v13:20.+"
+    api "com.android.support:support-v13:28.0.0"
 
 
 }

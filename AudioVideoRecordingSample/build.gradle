@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 28
+//    buildToolsVersion "23.0.2"
 
     defaultConfig {
         applicationId "com.serenegiant.audiovideosample"
-        minSdkVersion 18
-        targetSdkVersion 21
+        minSdkVersion 21
+        targetSdkVersion 28
 		versionCode 5
 		versionName "1.4"
     }
@@ -25,6 +25,6 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:23.2.0'
-    compile project(':drivevideo')
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation project(':drivevideo')
 }

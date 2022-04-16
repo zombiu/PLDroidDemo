@@ -133,7 +133,7 @@ public class FileSwapHelper {
         if (checkCardSpace(checkPath)) {
             File file = new File(fullPath.toString());
             String[] fileNames = file.list();
-            if (fileNames.length < 1) {
+            if (fileNames == null || fileNames.length < 1) {
                 return;
             }
             List<String> fileNameLists = Arrays.asList(fileNames);
