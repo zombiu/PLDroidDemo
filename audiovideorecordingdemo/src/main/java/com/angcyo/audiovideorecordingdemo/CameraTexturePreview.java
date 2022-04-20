@@ -20,6 +20,7 @@ public class CameraTexturePreview extends TextureView implements TextureView.Sur
     public void onSurfaceTextureAvailable(SurfaceTexture surface, int width,
                                           int height) {
         Log.i(TAG, "onSurfaceTextureAvailable()");
+        CameraWrapper.getInstance().doStartPreview(surface);
     }
 
     @Override

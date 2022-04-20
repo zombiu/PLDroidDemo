@@ -18,7 +18,7 @@ import java.util.Vector;
  */
 public class VideoRunnable extends Thread {
     private static final String TAG = "VideoRunnable";
-    private static final boolean VERBOSE = false; // lots of logging
+    private static final boolean VERBOSE = true; // lots of logging
     // parameters for the encoder
     private static final String MIME_TYPE = "video/avc"; // H.264 Advanced Video
     private static final int FRAME_RATE = 25; // 15fps
@@ -27,7 +27,7 @@ public class VideoRunnable extends Thread {
     private static final int TIMEOUT_USEC = 10000;
     private static final int COMPRESS_RATIO = 256;
     private static final int BIT_RATE = CameraWrapper.IMAGE_HEIGHT * CameraWrapper.IMAGE_WIDTH * 3 * 8 * FRAME_RATE / COMPRESS_RATIO; // bit rate CameraWrapper.
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     private final Object lock = new Object();
     byte[] mFrameData;
     Vector<byte[]> frameBytes;
@@ -115,7 +115,7 @@ public class VideoRunnable extends Thread {
 //        if (frameBytes != null && isMuxerReady) {
 //            frameBytes.add(data);
 //        }
-
+        Log.e("-->>", "添加视频数据");
         if (frameBytes != null) {
             frameBytes.add(data);
             synchronized (lock) {

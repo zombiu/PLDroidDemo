@@ -136,6 +136,8 @@ public class CameraWrapper {
         }
 
         try {
+            // 这里为啥 SurfaceTexture = null
+            Log.e("-->>", "SurfaceTexture=" + surface);
             this.mCamera.setPreviewTexture(surface);
         } catch (IOException e) {
             e.printStackTrace();
@@ -204,6 +206,7 @@ public class CameraWrapper {
             stopRecording();
         }
 
+        // 开启视频录制
         private void startRecording() {
             MediaMuxerRunnable.startMuxer();
         }
@@ -214,6 +217,7 @@ public class CameraWrapper {
 
         @Override
         public void onPreviewFrame(byte[] data, Camera camera) {
+            // 将视频帧数据送到编码器
             MediaMuxerRunnable.addVideoFrameData(data);
             camera.addCallbackBuffer(data);
         }

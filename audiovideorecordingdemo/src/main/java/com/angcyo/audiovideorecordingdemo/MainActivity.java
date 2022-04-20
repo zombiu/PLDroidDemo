@@ -18,6 +18,9 @@ import com.angcyo.audiovideorecordingdemo.rencoder.FileUtils;
 
 import java.io.FileNotFoundException;
 
+/**
+ * 注意 项目进行权限适配 需要手动开启app存储 相机 录音权限
+ */
 public class MainActivity extends AppCompatActivity implements CameraWrapper.CamOpenOverCallback {
 
     CameraTexturePreview mCameraTexturePreview;
@@ -179,6 +182,9 @@ public class MainActivity extends AppCompatActivity implements CameraWrapper.Cam
     @Override
     public void cameraHasOpened() {
         SurfaceTexture surface = this.mCameraTexturePreview.getSurfaceTexture();
-        CameraWrapper.getInstance().doStartPreview(surface);
+        // 这个调用时机有问题 这里 SurfaceTexture = null
+        /*if (surface != null) {
+            CameraWrapper.getInstance().doStartPreview(surface);
+        }*/
     }
 }
